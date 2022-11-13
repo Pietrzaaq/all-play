@@ -6,13 +6,49 @@ namespace AllPlay.Domain.Entities.Map;
 
 public class Pin
 {
-    public List<Player> Players;
+    private readonly List<Player> _players = new ();
     
-    public Guid PinId;
-    public Coordinates? Coordinates;
-    public SportType? SportType;
-    public string? CreatedBy;
-    public string? UpdatedBy;
-    public DateTime CreateDate;
-    public DateTime? UpdateDate;
+    public Guid PinId { get; }
+    public Coordinates Coordinates { get; }
+    public SportType SportType { get; }
+    public string CreatedBy { get; }
+    public string UpdatedBy { get; }
+    public DateTime CreateDate { get; }
+    public DateTime? UpdateDate { get; }
+    public IReadOnlyList<Player> Players => _players.AsReadOnly();
+    
+    private Pin(
+        Guid pinId,
+        Coordinates coordinates,
+        SportType sportType,
+        string createdBy,
+        DateTime createDate,
+        string updatedBy = null,
+        DateTime? updateDate = null)
+    {
+        PinId = pinId;
+        Coordinates = coordinates;
+        SportType = sportType;
+        CreatedBy = createdBy;
+        UpdatedBy = updatedBy;
+        CreateDate = createDate;
+        UpdateDate = updateDate;
+    }
+
+    public static Pin Create(
+        Guid pinId,
+        Coordinates coordinates,
+        SportType sportType,
+        string createdBy,
+        DateTime createDate
+    )
+    {
+        return new(
+            pinId,
+            coordinates,
+            sportType,
+            createdBy,
+            createDate
+        );
+    }
 }

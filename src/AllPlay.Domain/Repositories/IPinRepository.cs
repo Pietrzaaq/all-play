@@ -9,5 +9,7 @@ public interface IPinRepository
     Task<Pin> GetAsync(Guid id);
     Task<bool> ExistsAsync(Coordinates coordinates);
     Task<bool> ExistsAsync(Guid id);
+
+    Task AddAsync(Pin pin);
     Task<IReadOnlyList<Pin>> BrowseAsync();
 }
