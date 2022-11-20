@@ -4,51 +4,44 @@ using AllPlay.Domain.Entities.Game.ValueObjects;
 
 namespace AllPlay.Domain.Entities.Map;
 
-public class Pin
+public sealed class Marker
 {
     private readonly List<Player> _players = new ();
     
-    public Guid PinId { get; }
-    public Coordinates Coordinates { get; }
+    public Guid Id { get; }
     public SportType SportType { get; }
     public string CreatedBy { get; }
-    public string UpdatedBy { get; }
     public DateTime CreateDate { get; }
-    public DateTime? UpdateDate { get; }
+    public DateTime EventDate { get; }
     public IReadOnlyList<Player> Players => _players.AsReadOnly();
     
-    private Pin(
-        Guid pinId,
-        Coordinates coordinates,
+    private Marker(
+        Guid id,
+        SportType sportType,
+        string createdBy,
+        DateTime createDate, DateTime eventDate)
+    {
+        Id = id;
+        SportType = sportType;
+        CreatedBy = createdBy;
+        CreateDate = createDate;
+        EventDate = eventDate;
+    }
+
+    public static Marker Create(
+        Guid id,
         SportType sportType,
         string createdBy,
         DateTime createDate,
-        string updatedBy = null,
-        DateTime? updateDate = null)
-    {
-        PinId = pinId;
-        Coordinates = coordinates;
-        SportType = sportType;
-        CreatedBy = createdBy;
-        UpdatedBy = updatedBy;
-        CreateDate = createDate;
-        UpdateDate = updateDate;
-    }
-
-    public static Pin Create(
-        Guid pinId,
-        Coordinates coordinates,
-        SportType sportType,
-        string createdBy,
-        DateTime createDate
+        DateTime eventDate
     )
     {
         return new(
-            pinId,
-            coordinates,
+            id,
             sportType,
             createdBy,
-            createDate
+            createDate,
+            eventDate
         );
     }
 }

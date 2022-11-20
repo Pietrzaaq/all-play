@@ -6,9 +6,9 @@ namespace AllPlay.Application.DTO;
 public static class Extensions
 {
     
-    public static PinDto AsDto(this Pin pin)
+    public static MarkerDto AsDto(this Marker marker)
     {
-        return pin.Adapt<PinDto>();
+        return marker.Adapt<MarkerDto>();
     }
     
 }
