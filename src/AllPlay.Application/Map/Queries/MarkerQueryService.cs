@@ -1,5 +1,5 @@
 ﻿using AllPlay.Application.DTO;
-using AllPlay.Domain.Repositories;
+using AllPlay.Application.Repositories;
 
 namespace AllPlay.Application.Map.Services.Queries;
 

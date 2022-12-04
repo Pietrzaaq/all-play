@@ -1,7 +1,7 @@
 ﻿using AllPlay.Application.DTO;
 using AllPlay.Application.Exceptions;
+using AllPlay.Application.Repositories;
 using AllPlay.Domain.Entities.Map;
-using AllPlay.Domain.Repositories;
 using MediatR;
 
 namespace AllPlay.Application.Map.Services.Queries.Handlers;
@@ -18,11 +18,11 @@ public class GetMarkerQueryHandler :
 
     public async Task<MarkerDto> Handle(GetMarkerQuery query, CancellationToken cancellationToken)
     {
-        var marker = await _markerRepository.GetAsync(query.id);
+        var marker = await _markerRepository.GetAsync(query.Id);
         
-        if (marker is not null)
+        if (marker is null)
         {
-            throw new MarkerNotFoundException(query.id);
+            throw new MarkerNotFoundException(query.Id);
         }
 
         return marker.AsDto();

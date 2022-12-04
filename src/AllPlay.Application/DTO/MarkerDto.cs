@@ -1,6 +1,5 @@
 ﻿using AllPlay.Domain.Entities.Game;
 using AllPlay.Domain.Entities.Game.ValueObjects;
-using AllPlay.Domain.Entities.Map;
 
 namespace AllPlay.Application.DTO;
 

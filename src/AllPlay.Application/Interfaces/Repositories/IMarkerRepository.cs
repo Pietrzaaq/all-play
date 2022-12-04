@@ -1,6 +1,6 @@
 ﻿using AllPlay.Domain.Entities.Map;
 
-namespace AllPlay.Domain.Repositories;
+namespace AllPlay.Application.Repositories;
 
 public interface IMarkerRepository
 {

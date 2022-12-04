@@ -1,5 +1,4 @@
-﻿using System;
-using AllPlay.Domain.Entities.Game;
+﻿using AllPlay.Domain.Entities.Game;
 using AllPlay.Domain.Entities.Game.ValueObjects;
 
 namespace AllPlay.Domain.Entities.Map;

@@ -12,7 +12,7 @@ public record SportType
         "basketball"
     };
 
-    private SportType(string sport)
+    public SportType(string sport)
     {
         if (ValidSportTypes.Any(sportType => sportType.Equals(sport)))
         {
