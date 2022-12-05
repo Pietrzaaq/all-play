@@ -12,6 +12,7 @@
     <ItemGroup>
       <ProjectReference Include="..\AllPlay.Contracts\AllPlay.Contracts.csproj" />
       <ProjectReference Include="..\AllPlay.Application\AllPlay.Application.csproj" />
+      <ProjectReference Include="..\AllPlay.Infrastructure\AllPlay.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

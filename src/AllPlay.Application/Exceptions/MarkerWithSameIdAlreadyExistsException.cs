@@ -1,4 +1,6 @@
-﻿namespace AllPlay.Domain.Common.Exceptions;
+﻿using AllPlay.Domain.Common.Exceptions;
+
+namespace AllPlay.Application.Exceptions;
 
 public sealed class MarkerWithSameIdAlreadyExistsException : AllPlayException
 {

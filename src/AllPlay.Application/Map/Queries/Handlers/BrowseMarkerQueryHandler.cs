@@ -1,5 +1,6 @@
 ﻿using AllPlay.Application.DTO;
-using AllPlay.Application.Repositories;
+using AllPlay.Application.Interfaces.Repositories;
+using AllPlay.Application.Map.Queries;
 using MediatR;
 
 namespace AllPlay.Application.Map.Services.Queries.Handlers;

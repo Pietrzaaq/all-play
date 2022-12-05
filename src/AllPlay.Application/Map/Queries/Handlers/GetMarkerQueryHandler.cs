@@ -1,10 +1,10 @@
 ﻿using AllPlay.Application.DTO;
 using AllPlay.Application.Exceptions;
-using AllPlay.Application.Repositories;
-using AllPlay.Domain.Entities.Map;
+using AllPlay.Application.Interfaces.Repositories;
+using AllPlay.Application.Map.Services.Queries;
 using MediatR;
 
-namespace AllPlay.Application.Map.Services.Queries.Handlers;
+namespace AllPlay.Application.Map.Queries.Handlers;
 
 public class GetMarkerQueryHandler : 
         IRequestHandler<GetMarkerQuery , MarkerDto>

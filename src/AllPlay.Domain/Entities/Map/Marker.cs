@@ -8,6 +8,7 @@ public sealed class Marker
     private readonly List<Player> _players = new ();
     
     public Guid Id { get; }
+    public Guid AreaId { get; }
     public SportType SportType { get; }
     public string CreatedBy { get; }
     public DateTime CreateDate { get; }
@@ -16,11 +17,13 @@ public sealed class Marker
     
     private Marker(
         Guid id,
+        Guid areaId,
         SportType sportType,
         string createdBy,
         DateTime createDate, DateTime eventDate)
     {
         Id = id;
+        AreaId = areaId;
         SportType = sportType;
         CreatedBy = createdBy;
         CreateDate = createDate;
@@ -29,6 +32,7 @@ public sealed class Marker
 
     public static Marker Create(
         Guid id,
+        Guid areaId,
         SportType sportType,
         string createdBy,
         DateTime createDate,
@@ -37,6 +41,7 @@ public sealed class Marker
     {
         return new(
             id,
+            areaId,
             sportType,
             createdBy,
             createDate,

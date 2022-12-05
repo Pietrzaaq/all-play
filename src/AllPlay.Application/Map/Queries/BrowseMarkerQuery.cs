@@ -3,5 +3,5 @@ using MediatR;
 
 namespace AllPlay.Application.Map.Queries;
 
-public record GetMarkerQuery(
-    Guid Id) : IRequest<MarkerDto>;
+public record BrowseMarkerQuery :
+    IRequest<IReadOnlyList<MarkerDto>>;
