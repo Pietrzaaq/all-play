@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace AllPlay.Application.Map.Services.Commands;
+namespace AllPlay.Application.Map.Commands;
 
 public record CreateMarkerCommand(
     Guid Id,
@@ -9,4 +9,4 @@ public record CreateMarkerCommand(
     string CreatedBy,
     DateTime CreateDate,
     DateTime EventDate
-    ) : IRequest;
+    ) : IRequest<Unit>;

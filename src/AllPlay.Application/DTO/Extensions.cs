@@ -5,10 +5,16 @@ namespace AllPlay.Application.DTO;
 
 public static class Extensions
 {
-    
+
     public static MarkerDto AsDto(this Marker marker)
-    {
-        return marker.Adapt<MarkerDto>();
-    }
-    
+        => new()
+        {
+            Id = marker.Id,
+            SportType = marker.SportType,
+            CreatedBy = marker.CreatedBy,
+            CreateDate = marker.CreateDate,
+            EventDate = marker.EventDate,
+            Players = marker.Players.ToList()
+        };
+
 }

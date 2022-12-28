@@ -1,4 +1,5 @@
-﻿using AllPlay.Domain.Entities.Game.ValueObjects;
+﻿using AllPlay.Domain.Entities.Game;
+using AllPlay.Domain.Entities.Game.ValueObjects;
 using AllPlay.Domain.Entities.Map;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,6 +10,8 @@ internal sealed class MarkerConfiguration : IEntityTypeConfiguration<Marker>
 {
     public void Configure(EntityTypeBuilder<Marker> builder)
     {
+        builder.HasOne<Area>(x => x.Area);
+        builder.HasMany<Player>().WithOne().HasForeignKey(x => x.Id);
         builder.HasIndex(x => x.Id).IsUnique();
         builder.Property(x => x.AreaId).IsRequired();
         builder.Property(x => x.CreateDate).IsRequired();

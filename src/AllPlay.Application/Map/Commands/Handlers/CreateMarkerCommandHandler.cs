@@ -1,6 +1,5 @@
 ﻿using AllPlay.Application.Exceptions;
 using AllPlay.Application.Interfaces.Repositories;
-using AllPlay.Application.Map.Services.Commands;
 using AllPlay.Domain.Entities.Game.ValueObjects;
 using AllPlay.Domain.Entities.Map;
 using MediatR;
@@ -8,7 +7,7 @@ using MediatR;
 namespace AllPlay.Application.Map.Commands.Handlers;
 
 public class CreateMarkerCommandHandler
-    : IRequestHandler<CreateMarkerCommand, Unit>
+    : IRequestHandler<CreateMarkerCommand>
 {
     private readonly IMarkerRepository _markerRepository;
 

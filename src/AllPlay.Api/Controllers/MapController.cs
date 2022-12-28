@@ -1,5 +1,5 @@
-﻿using AllPlay.Application.Map.Queries;
-using AllPlay.Application.Map.Services.Commands;
+﻿using AllPlay.Application.Map.Commands;
+using AllPlay.Application.Map.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

@@ -12,7 +12,6 @@ public static class DependencyInjection
         IConfiguration configuration)
     {
         services.AddScoped<IDateTimeProvider, DateTimeProvider>();
-        
         services.AddDatabase(configuration);
         return services;
     }

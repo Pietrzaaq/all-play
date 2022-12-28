@@ -10,9 +10,15 @@ public class Area
     
     public Coordinates Coordinates { get; }
 
-    public IReadOnlyList<SportType> AvailableSportTypes => _availableSportTypes.AsReadOnly();
+    // public IReadOnlyList<SportType> AvailableSportTypes => _availableSportTypes.AsReadOnly();
 
     public IReadOnlyList<Marker> Markers => _markers.AsReadOnly();
+
+    public Area()
+    {
+        
+    }
+    
     public Area(Guid id, Coordinates coordinates)
     {
         Id = id;

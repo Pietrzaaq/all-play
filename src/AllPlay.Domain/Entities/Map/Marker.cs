@@ -13,7 +13,13 @@ public sealed class Marker
     public string CreatedBy { get; }
     public DateTime CreateDate { get; }
     public DateTime EventDate { get; }
+    public Area Area { get; set; }
     public IReadOnlyList<Player> Players => _players.AsReadOnly();
+
+    public Marker()
+    {
+        
+    }
     
     private Marker(
         Guid id,

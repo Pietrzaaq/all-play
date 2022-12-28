@@ -1,10 +1,17 @@
 ﻿using AllPlay.Domain.Entities.Game;
 using AllPlay.Domain.Entities.Game.ValueObjects;
+using AllPlay.Domain.Entities.Map;
 
 namespace AllPlay.Application.DTO;
 
 public class MarkerDto
 {
+
+    public MarkerDto()
+    {
+        
+    }
+    
     public List<Player> Players { get; set; }
 
     public Guid Id { get; set; }

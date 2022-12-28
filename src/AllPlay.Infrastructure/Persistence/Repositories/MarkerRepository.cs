@@ -15,7 +15,7 @@ public class MarkerRepository : IMarkerRepository
         _markers = markers;
     }
 
-    public async Task<Marker?> GetAsync(Guid id) => 
+    public async Task<Marker> GetAsync(Guid id) => 
         await _markers.FirstOrDefaultAsync(x => x.Id == id);
 
     public async Task<bool> ExistsAsync(Guid id)
