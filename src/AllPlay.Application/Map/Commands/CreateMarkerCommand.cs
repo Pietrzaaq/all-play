@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using AllPlay.Application.Abstractions;
 
 namespace AllPlay.Application.Map.Commands;
 
@@ -9,4 +9,4 @@ public record CreateMarkerCommand(
     string CreatedBy,
     DateTime CreateDate,
     DateTime EventDate
-    ) : IRequest<Unit>;
+    ) : ICommand;

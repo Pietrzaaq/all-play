@@ -14,9 +14,9 @@ internal static class DependencyInjection
     {
         var connectionString = configuration[$"Database:ConnectionString"];
         services.AddDbContext<AllPlayDbContext>(x => x.UseSqlServer(connectionString));
-        services.AddTransient<IMarkerRepository, MarkerRepository>();
-        services.AddTransient<IAreaRepository, AreaRepository>();
-        services.AddHostedService<DatabaseInitializer>();
+        services.AddScoped<IMarkerRepository, MarkerRepository>();
+        services.AddScoped<IAreaRepository, AreaRepository>();
+        //services.AddHostedService<DatabaseInitializer>();
         
         return services;
     }

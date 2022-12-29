@@ -1,6 +1,6 @@
-﻿using AllPlay.Application.Map.Commands;
+﻿using AllPlay.Application.Abstractions;
+using AllPlay.Application.Map.Commands;
 using AllPlay.Application.Map.Queries;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AllPlay.Api.Controllers;
@@ -9,17 +9,17 @@ namespace AllPlay.Api.Controllers;
 [Route("map")]
 public class MapController : ControllerBase
 {
-    private readonly ISender _mediator;
+    private readonly IDispatcher _dispatcher;
 
-    public MapController(ISender mediator)
+    public MapController(IDispatcher dispatcher)
     {
-        _mediator = mediator;
+        _dispatcher = dispatcher;
     }
 
     [HttpPost]
     public async Task<IActionResult> CreateMarker(CreateMarkerCommand command)
     {
-        var result = await _mediator.Send(command);
+        await _dispatcher.SendAsync(command);
 
         return Ok();
     }
@@ -27,7 +27,7 @@ public class MapController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetMarkers(BrowseMarkerQuery query)
     {
-        var result = await _mediator.Send(query);
+        var result = await _dispatcher.QueryAsync(query);
 
         if (result is null)
         {

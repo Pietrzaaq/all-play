@@ -1,7 +1,7 @@
-﻿using AllPlay.Application.DTO;
-using MediatR;
+﻿using AllPlay.Application.Abstractions;
+using AllPlay.Application.DTO;
 
 namespace AllPlay.Application.Map.Queries;
 
 public record BrowseMarkerQuery :
-    IRequest<IReadOnlyList<MarkerDto>>;
+    IQuery<IReadOnlyList<MarkerDto>>;

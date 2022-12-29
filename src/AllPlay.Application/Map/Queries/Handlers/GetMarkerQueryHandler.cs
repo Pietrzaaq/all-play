@@ -1,12 +1,12 @@
-﻿using AllPlay.Application.DTO;
+﻿using AllPlay.Application.Abstractions;
+using AllPlay.Application.DTO;
 using AllPlay.Application.Exceptions;
 using AllPlay.Application.Interfaces.Repositories;
-using MediatR;
 
 namespace AllPlay.Application.Map.Queries.Handlers;
 
 public class GetMarkerQueryHandler : 
-        IRequestHandler<GetMarkerQuery , MarkerDto>
+        IQueryHandler<GetMarkerQuery , MarkerDto>
 {
     private readonly IMarkerRepository _markerRepository;
 
@@ -15,7 +15,7 @@ public class GetMarkerQueryHandler :
         _markerRepository = markerRepository;
     }
 
-    public async Task<MarkerDto> Handle(GetMarkerQuery query, CancellationToken cancellationToken)
+    public async Task<MarkerDto> HandleAsync(GetMarkerQuery query)
     {
         var marker = await _markerRepository.GetAsync(query.Id);
         

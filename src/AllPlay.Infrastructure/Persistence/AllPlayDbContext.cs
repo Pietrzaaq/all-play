@@ -22,13 +22,14 @@ public class AllPlayDbContext : DbContext
     }
 }
 
-public class AllPlayDbContextFactory : IDesignTimeDbContextFactory<AllPlayDbContext>
-{
-    public AllPlayDbContext CreateDbContext(string[] args)
-    {
-        var optionsBuilder = new DbContextOptionsBuilder<AllPlayDbContext>();
-        optionsBuilder.UseSqlServer("Server=localhost;Database=AllPlay;Trusted_Connection=True; TrustServerCertificate=True");
-
-        return new AllPlayDbContext(optionsBuilder.Options);
-    }
-}
+// public class AllPlayDbContextFactory : IDesignTimeDbContextFactory<AllPlayDbContext>
+// {
+//     public AllPlayDbContext CreateDbContext(string[] args)
+//     {
+//         var optionsBuilder = new DbContextOptionsBuilder<AllPlayDbContext>();
+//         var modelBuilder = new ModelBuilder();
+//         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+//         optionsBuilder.UseSqlServer("Server=localhost;Database=AllPlay;Trusted_Connection=True; TrustServerCertificate=True");
+//         return new AllPlayDbContext(optionsBuilder.Options);
+//     }
+// }

@@ -1,13 +1,13 @@
-﻿using AllPlay.Application.Exceptions;
+﻿using AllPlay.Application.Abstractions;
+using AllPlay.Application.Exceptions;
 using AllPlay.Application.Interfaces.Repositories;
 using AllPlay.Domain.Entities.Game.ValueObjects;
 using AllPlay.Domain.Entities.Map;
-using MediatR;
 
 namespace AllPlay.Application.Map.Commands.Handlers;
 
 public class CreateMarkerCommandHandler
-    : IRequestHandler<CreateMarkerCommand>
+    : ICommandHandler<CreateMarkerCommand>
 {
     private readonly IMarkerRepository _markerRepository;
 
@@ -16,7 +16,7 @@ public class CreateMarkerCommandHandler
         _markerRepository = markerRepository;
     }
     
-    public async Task<Unit> Handle(CreateMarkerCommand command, CancellationToken cancellationToken)
+    public async Task HandleAsync(CreateMarkerCommand command)
     {
         var existingMarker = await _markerRepository.ExistsAsync(command.Id);
         
@@ -34,6 +34,5 @@ public class CreateMarkerCommandHandler
             command.EventDate);
 
         await _markerRepository.AddAsync(marker);
-        return Unit.Value;
     }
 }

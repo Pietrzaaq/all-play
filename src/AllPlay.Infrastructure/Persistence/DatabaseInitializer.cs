@@ -8,7 +8,6 @@ public class DatabaseInitializer : IHostedService
 {
     private readonly IServiceProvider _serviceProvider;
 
-
     public DatabaseInitializer(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;

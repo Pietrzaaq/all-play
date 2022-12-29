@@ -9,10 +9,10 @@ public class MarkerRepository : IMarkerRepository
     private readonly AllPlayDbContext _context;
     private readonly DbSet<Marker> _markers;
 
-    public MarkerRepository(AllPlayDbContext context, DbSet<Marker> markers)
+    public MarkerRepository(AllPlayDbContext context)
     {
         _context = context;
-        _markers = markers;
+        _markers = context.Markers;
     }
 
     public async Task<Marker> GetAsync(Guid id) => 
