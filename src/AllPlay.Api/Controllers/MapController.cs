@@ -24,10 +24,23 @@ public class MapController : ControllerBase
         return Ok();
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetMarkers(BrowseMarkerQuery query)
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetMarker(Guid id)
     {
-        var result = await _dispatcher.QueryAsync(query);
+        var result = await _dispatcher.QueryAsync(new GetMarkerQuery(id));
+
+        if (result is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(result);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetMarkers()
+    {
+        var result = await _dispatcher.QueryAsync(new BrowseMarkerQuery());
 
         if (result is null)
         {

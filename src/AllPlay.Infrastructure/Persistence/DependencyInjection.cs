@@ -16,7 +16,7 @@ internal static class DependencyInjection
         services.AddDbContext<AllPlayDbContext>(x => x.UseSqlServer(connectionString));
         services.AddScoped<IMarkerRepository, MarkerRepository>();
         services.AddScoped<IAreaRepository, AreaRepository>();
-        //services.AddHostedService<DatabaseInitializer>();
+        services.AddHostedService<DatabaseInitializer>();
         
         return services;
     }

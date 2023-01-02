@@ -9,8 +9,6 @@ public class AreaConfiguration : IEntityTypeConfiguration<Area>
 {
     public void Configure(EntityTypeBuilder<Area> builder)
     {
-        builder.HasMany<Marker>().WithOne().HasForeignKey(x => x.AreaId);
-        
         builder.HasIndex(x => x.Id).IsUnique();
         
         builder.OwnsOne(x => x.Coordinates)

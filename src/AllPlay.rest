@@ -1,0 +1,22 @@
+@url = https://localhost:7046
+
+@userId = 957DB4F2-FF5E-4CB0-9EE2-FEEECF62798C
+
+###
+GET {{url}}/map/{{userId}}
+
+###
+GET {{url}}/map
+
+###
+POST {{url}}/map
+Content-Type: application/json
+
+{
+    "AreaId": "77FB9668-BC26-4C96-9D10-ABEC6F283766",
+    "SportType": "Basketball",
+    "CreatedBy": "Dawid Pietrzak",
+    "CreationDate" : "2023-01-02:00:00",
+    "EventStartDate" : "2023-01-02:00:00",
+    "EventEndDate" : "2023-01-02:00:00",
+}

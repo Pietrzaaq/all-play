@@ -11,8 +11,9 @@ public sealed class Marker
     public Guid AreaId { get; }
     public SportType SportType { get; }
     public string CreatedBy { get; }
-    public DateTime CreateDate { get; }
-    public DateTime EventDate { get; }
+    public DateTime CreationDate { get; }
+    public DateTime EventStartDate { get; }
+    public DateTime EventEndDate { get; }
     public Area Area { get; set; }
     public IReadOnlyList<Player> Players => _players.AsReadOnly();
 
@@ -26,14 +27,17 @@ public sealed class Marker
         Guid areaId,
         SportType sportType,
         string createdBy,
-        DateTime createDate, DateTime eventDate)
+        DateTime creationDate, 
+        DateTime eventStartDate,
+        DateTime eventEndDate)
     {
         Id = id;
         AreaId = areaId;
         SportType = sportType;
         CreatedBy = createdBy;
-        CreateDate = createDate;
-        EventDate = eventDate;
+        CreationDate = creationDate;
+        EventStartDate = eventStartDate;
+        EventEndDate = eventEndDate;
     }
 
     public static Marker Create(
@@ -41,17 +45,18 @@ public sealed class Marker
         Guid areaId,
         SportType sportType,
         string createdBy,
-        DateTime createDate,
-        DateTime eventDate
-    )
+        DateTime creationDate, 
+        DateTime eventStartDate,
+        DateTime eventEndDate)
     {
         return new(
             id,
             areaId,
             sportType,
             createdBy,
-            createDate,
-            eventDate
+            creationDate, 
+            eventStartDate,
+            eventEndDate
         );
     }
 }

@@ -10,7 +10,7 @@ public class CreateMarkerCommandHandler
     : ICommandHandler<CreateMarkerCommand>
 {
     private readonly IMarkerRepository _markerRepository;
-
+    
     public CreateMarkerCommandHandler(IMarkerRepository markerRepository)
     {
         _markerRepository = markerRepository;
@@ -18,20 +18,28 @@ public class CreateMarkerCommandHandler
     
     public async Task HandleAsync(CreateMarkerCommand command)
     {
-        var existingMarker = await _markerRepository.ExistsAsync(command.Id);
+        var existingMarker = 
+            await _markerRepository.ExistsAsync(
+                command.AreaId,
+                command.EventStartDate,
+                command.EventEndDate);
         
         if (existingMarker)
         {
-            throw new MarkerWithSameIdAlreadyExistsException(command.Id);
+            throw new MarkerWithTheSameDateAlreadyExistsException(
+                command.AreaId,
+                command.EventStartDate,
+                command.EventEndDate);
         }
 
         var marker = Marker.Create(
-            command.Id,
+            Guid.NewGuid(), 
             command.AreaId,
             new SportType(command.SportType),
             command.CreatedBy,
-            command.CreateDate,
-            command.EventDate);
+            command.CreationDate,
+            command.EventStartDate,
+            command.EventEndDate);
 
         await _markerRepository.AddAsync(marker);
     }

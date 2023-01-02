@@ -13,7 +13,7 @@ internal sealed class MarkerConfiguration : IEntityTypeConfiguration<Marker>
     {
         builder.HasOne(marker => marker.Area)
             .WithMany(area => area.Markers)
-            .HasForeignKey(x => x.Id)
+            .HasForeignKey(marker => marker.AreaId)
             .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasMany(marker => marker.Players)
@@ -22,12 +22,14 @@ internal sealed class MarkerConfiguration : IEntityTypeConfiguration<Marker>
 
         builder.HasIndex(x => x.Id).IsUnique();
 
-        builder.Property(x => x.CreateDate).IsRequired();
+        builder.Property(x => x.CreationDate).IsRequired();
         
         builder.Property(x => x.CreatedBy).IsRequired()
             .HasMaxLength(100);
 
-        builder.Property(x => x.EventDate);
+        builder.Property(x => x.EventStartDate);
+        
+        builder.Property(x => x.EventEndDate);
         
         builder.Property(x => x.SportType)
             .HasConversion(x => x.Sport, x => new SportType(x));

@@ -23,6 +23,14 @@ public class MarkerRepository : IMarkerRepository
         return await _markers.AnyAsync(x => x.AreaId == id);
     }
 
+    public async Task<bool> ExistsAsync(Guid areaId, DateTime eventStartTime, DateTime eventEndTime)
+    {
+        return await _markers.AnyAsync(marker => 
+            (marker.AreaId == areaId) &&
+            (marker.EventStartDate >= eventStartTime) &&
+            (marker.EventEndDate <= eventStartTime));
+    }
+
     public async Task AddAsync(Marker marker)
     {
         await _markers.AddAsync(marker);

@@ -17,6 +17,7 @@ public class MarkerDto
     public Guid Id { get; set; }
     public SportType SportType { get; set; }
     public string CreatedBy { get; set; }
-    public DateTime CreateDate { get; set; }
-    public DateTime EventDate { get; set; }
+    public DateTime CreationDate { get; set; }
+    public DateTime EventStartDate { get; set; }
+    public DateTime EventEndDate { get; set; }
 }

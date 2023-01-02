@@ -12,8 +12,9 @@ public static class Extensions
             Id = marker.Id,
             SportType = marker.SportType,
             CreatedBy = marker.CreatedBy,
-            CreateDate = marker.CreateDate,
-            EventDate = marker.EventDate,
+            CreationDate = marker.CreationDate,
+            EventStartDate = marker.EventStartDate,
+            EventEndDate = marker.EventEndDate,
             Players = marker.Players.ToList()
         };
 

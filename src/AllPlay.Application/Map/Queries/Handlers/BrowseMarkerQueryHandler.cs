@@ -18,9 +18,9 @@ public class BrowseMarkerQueryHandler :
     {
         var markers = await _markerRepository.BrowseAsync();
 
-        if (markers is not null)
+        if (markers is null)
         {
-            throw new ArgumentNullException();
+            return null;
         }
 
         var markersDto = markers.Select(x => x.AsDto()).ToList();
