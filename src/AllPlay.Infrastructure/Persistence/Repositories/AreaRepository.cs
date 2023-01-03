@@ -1,5 +1,5 @@
-﻿using AllPlay.Application.Interfaces.Repositories;
-using AllPlay.Domain.Entities.Map;
+﻿using AllPlay.Application.Abstractions.Repositories;
+using AllPlay.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllPlay.Infrastructure.Persistence.Repositories;

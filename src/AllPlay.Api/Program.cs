@@ -4,7 +4,6 @@ using AllPlay.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    // Add services to the container.
     builder.Services
         .AddApplication()
         .AddInfrastructure(builder.Configuration)
@@ -13,7 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 {
-    // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
@@ -21,7 +19,6 @@ var app = builder.Build();
     }
 
     app.UseHttpsRedirection();
-    // app.UseAuthorization();
     app.MapControllers();
     app.Run();
 }

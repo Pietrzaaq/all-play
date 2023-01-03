@@ -1,22 +1,23 @@
 @url = https://localhost:7046
 
-@userId = 957DB4F2-FF5E-4CB0-9EE2-FEEECF62798C
+@userId = v
+@simpleUserId = 1
 
 ###
-GET {{url}}/map/{{userId}}
+GET {{url}}/sport-events/{{userId}}
 
 ###
-GET {{url}}/map
+GET {{url}}/sport-events
 
 ###
-POST {{url}}/map
+POST {{url}}/sport-events
 Content-Type: application/json
 
 {
-    "AreaId": "77FB9668-BC26-4C96-9D10-ABEC6F283766",
-    "SportType": "Basketball",
-    "CreatedBy": "Dawid Pietrzak",
-    "CreationDate" : "2023-01-02:00:00",
-    "EventStartDate" : "2023-01-02:00:00",
-    "EventEndDate" : "2023-01-02:00:00",
+    "areaId": "77FB9668-BC26-4C96-9D10-ABEC6F283766",
+    "sportType": "Basketball",
+    "createdBy": "Dawid Pietrzak",
+    "creationDate" : "2023-01-02T00:00:00.000Z",
+    "eventStartDate" : "2023-01-02T00:00:00.000Z",
+    "eventEndDate" : "2023-01-02T00:00:00.000Z"
 }

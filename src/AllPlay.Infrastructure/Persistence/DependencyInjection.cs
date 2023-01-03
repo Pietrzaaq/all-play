@@ -1,4 +1,4 @@
-﻿using AllPlay.Application.Interfaces.Repositories;
+﻿using AllPlay.Application.Abstractions.Repositories;
 using AllPlay.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +14,7 @@ internal static class DependencyInjection
     {
         var connectionString = configuration[$"Database:ConnectionString"];
         services.AddDbContext<AllPlayDbContext>(x => x.UseSqlServer(connectionString));
-        services.AddScoped<IMarkerRepository, MarkerRepository>();
+        services.AddScoped<ISportEventRepository, SportEventRepository>();
         services.AddScoped<IAreaRepository, AreaRepository>();
         services.AddHostedService<DatabaseInitializer>();
         

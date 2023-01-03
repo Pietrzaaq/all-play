@@ -1,21 +1,21 @@
-﻿using AllPlay.Application.Interfaces.Repositories;
-using AllPlay.Domain.Entities.Map;
+﻿using AllPlay.Application.Abstractions.Repositories;
+using AllPlay.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllPlay.Infrastructure.Persistence.Repositories;
 
-public class MarkerRepository : IMarkerRepository
+public class SportEventRepository : ISportEventRepository
 {
     private readonly AllPlayDbContext _context;
-    private readonly DbSet<Marker> _markers;
+    private readonly DbSet<SportEvent> _markers;
 
-    public MarkerRepository(AllPlayDbContext context)
+    public SportEventRepository(AllPlayDbContext context)
     {
         _context = context;
         _markers = context.Markers;
     }
 
-    public async Task<Marker> GetAsync(Guid id) => 
+    public async Task<SportEvent> GetAsync(Guid id) => 
         await _markers.FirstOrDefaultAsync(x => x.Id == id);
 
     public async Task<bool> ExistsAsync(Guid id)
@@ -31,13 +31,13 @@ public class MarkerRepository : IMarkerRepository
             (marker.EventEndDate <= eventStartTime));
     }
 
-    public async Task AddAsync(Marker marker)
+    public async Task AddAsync(SportEvent sportEvent)
     {
-        await _markers.AddAsync(marker);
+        await _markers.AddAsync(sportEvent);
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IReadOnlyList<Marker>> BrowseAsync()
+    public async Task<IReadOnlyList<SportEvent>> BrowseAsync()
     {
         return await _markers.ToListAsync();
     }

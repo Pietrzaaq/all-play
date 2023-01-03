@@ -1,4 +1,4 @@
-﻿using AllPlay.Application.Interfaces.Services;
+﻿using AllPlay.Application.Common.Abstractions;
 
 namespace AllPlay.Infrastructure.Services;
 

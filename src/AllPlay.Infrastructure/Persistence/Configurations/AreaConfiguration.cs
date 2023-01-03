@@ -1,5 +1,4 @@
-﻿using AllPlay.Domain.Entities.Game.ValueObjects;
-using AllPlay.Domain.Entities.Map;
+﻿using AllPlay.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

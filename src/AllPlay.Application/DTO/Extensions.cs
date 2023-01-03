@@ -1,4 +1,4 @@
-﻿using AllPlay.Domain.Entities.Map;
+﻿using AllPlay.Domain.Entities;
 using Mapster;
 
 namespace AllPlay.Application.DTO;
@@ -6,16 +6,16 @@ namespace AllPlay.Application.DTO;
 public static class Extensions
 {
 
-    public static MarkerDto AsDto(this Marker marker)
+    public static SportEventDto AsDto(this SportEvent sportEvent)
         => new()
         {
-            Id = marker.Id,
-            SportType = marker.SportType,
-            CreatedBy = marker.CreatedBy,
-            CreationDate = marker.CreationDate,
-            EventStartDate = marker.EventStartDate,
-            EventEndDate = marker.EventEndDate,
-            Players = marker.Players.ToList()
+            Id = sportEvent.Id,
+            SportType = sportEvent.SportType,
+            CreatedBy = sportEvent.CreatedBy,
+            CreationDate = sportEvent.CreationDate,
+            EventStartDate = sportEvent.EventStartDate,
+            EventEndDate = sportEvent.EventEndDate,
+            Players = sportEvent.Players.ToList()
         };
 
 }

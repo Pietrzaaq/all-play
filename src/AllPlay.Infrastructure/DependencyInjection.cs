@@ -1,9 +1,9 @@
-﻿using AllPlay.Application.Abstractions;
-using AllPlay.Application.Interfaces.Services;
-using AllPlay.Infrastructure.Commands;
+﻿using AllPlay.Application.Common.Abstractions;
+using AllPlay.Infrastructure.Common;
+using AllPlay.Infrastructure.Common.Commands;
+using AllPlay.Infrastructure.Common.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using AllPlay.Infrastructure.Persistence;
-using AllPlay.Infrastructure.Queries;
 using AllPlay.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 

@@ -1,5 +1,4 @@
-﻿using AllPlay.Domain.Entities.Game;
-using AllPlay.Domain.Entities.Map;
+﻿using AllPlay.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllPlay.Infrastructure.Persistence;
@@ -7,7 +6,7 @@ namespace AllPlay.Infrastructure.Persistence;
 public class AllPlayDbContext : DbContext
 {
     public DbSet<Area> Areas { get; set; }
-    public DbSet<Marker> Markers { get; set; }
+    public DbSet<SportEvent> Markers { get; set; }
     public DbSet<Player> Players { get; set; }
 
     public AllPlayDbContext(DbContextOptions<AllPlayDbContext> options) : base(options)
