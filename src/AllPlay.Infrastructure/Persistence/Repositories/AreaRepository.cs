@@ -1,5 +1,6 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
 using AllPlay.Domain.Entities;
+using AllPlay.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllPlay.Infrastructure.Persistence.Repositories;
@@ -20,4 +21,17 @@ public class AreaRepository : IAreaRepository
 
     public async Task<bool> ExistsAsync(Guid id) =>
         await _areas.AnyAsync(x => x.Id == id);
+
+    public async Task<bool> ExistsAsync(Coordinates coordinates)
+    {
+        return await _areas.AnyAsync(x =>
+            x.Coordinates.Latitude == coordinates.Latitude &&
+            x.Coordinates.Longitude == coordinates.Longitude);
+    }
+
+    public async Task AddAsync(Area area)
+    {
+        await _areas.AddAsync(area);
+        await _context.SaveChangesAsync();
+    }
 }

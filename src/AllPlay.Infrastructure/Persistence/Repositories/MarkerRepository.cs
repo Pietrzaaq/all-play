@@ -26,9 +26,9 @@ public class SportEventRepository : ISportEventRepository
     public async Task<bool> ExistsAsync(Guid areaId, DateTime eventStartTime, DateTime eventEndTime)
     {
         return await _markers.AnyAsync(marker => 
-            (marker.AreaId == areaId) &&
-            (marker.EventStartDate >= eventStartTime) &&
-            (marker.EventEndDate <= eventStartTime));
+            marker.AreaId == areaId &&
+            marker.EventStartDate >= eventStartTime &&
+            marker.EventEndDate <= eventStartTime);
     }
 
     public async Task AddAsync(SportEvent sportEvent)
