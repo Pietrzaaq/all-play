@@ -19,6 +19,9 @@ public class AreaRepository : IAreaRepository
     public async Task<Area> GetAsync(Guid id) =>
         await _areas.FirstOrDefaultAsync(x => x.Id == id);
 
+    public async Task<IReadOnlyList<Area>> BrowseAsync()
+        => await _areas.ToListAsync();
+
     public async Task<bool> ExistsAsync(Guid id) =>
         await _areas.AnyAsync(x => x.Id == id);
 

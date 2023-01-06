@@ -16,6 +16,7 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<CreateAreaCommand>, CreateAreaCommandHandler>();
         services.AddScoped<IQueryHandler<GetSportEventsQuery, SportEventDto>, GetSportEventQueryHandler>();
         services.AddScoped<IQueryHandler<BrowseSportEventsQuery, IReadOnlyList<SportEventDto>>, BrowseSportEventsQueryHandler>();
+        services.AddScoped<IQueryHandler<BrowseAreasQuery, IReadOnlyList<AreaDto>>, BrowseAreasQueryHandler>();
         services.AddScoped<IQueryHandler<GetAreaQuery, AreaDto>, GetAreaQueryHandler>();
         
         return services;

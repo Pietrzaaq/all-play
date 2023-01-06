@@ -40,7 +40,7 @@ public class AreasController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetSportEvents()
     {
-        var result = await _dispatcher.QueryAsync(new BrowseSportEventsQuery());
+        var result = await _dispatcher.QueryAsync(new BrowseAreasQuery());
 
         if (result is null)
         {

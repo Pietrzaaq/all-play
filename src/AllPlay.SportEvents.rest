@@ -1,6 +1,6 @@
 @url = https://localhost:7046
 
-@userId = 1
+@userId = 5a4677f2-44a8-4cb2-b030-4351555dfda8
 
 ###
 GET {{url}}/sport-events/{{userId}}
@@ -13,10 +13,10 @@ POST {{url}}/sport-events
 Content-Type: application/json
 
 {
-    "areaId": "77FB9668-BC26-4C96-9D10-ABEC6F283766",
+    "areaId": "5a4677f2-44a8-4cb2-b030-4351555dfda8",
     "sportType": "Basketball",
     "createdBy": "Dawid Pietrzak",
     "creationDate" : "2023-01-02T00:00:00.000Z",
-    "eventStartDate" : "2023-01-02T00:00:00.000Z",
-    "eventEndDate" : "2023-01-02T00:00:00.000Z"
+    "eventStartDate" : "2023-01-03T00:00:00.000Z",
+    "eventEndDate" : "2023-01-05T00:00:00.000Z"
 }
