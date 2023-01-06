@@ -12,7 +12,7 @@ public class SportEventRepository : ISportEventRepository
     public SportEventRepository(AllPlayDbContext context)
     {
         _context = context;
-        _markers = context.Markers;
+        _markers = context.SportEvents;
     }
 
     public async Task<SportEvent> GetAsync(Guid id) => 

@@ -14,7 +14,7 @@ public class SportEventDto
     public List<Player> Players { get; set; }
 
     public Guid Id { get; set; }
-    public SportType SportType { get; set; }
+    public string SportType { get; set; }
     public string CreatedBy { get; set; }
     public DateTime CreationDate { get; set; }
     public DateTime EventStartDate { get; set; }

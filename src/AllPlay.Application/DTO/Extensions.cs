@@ -10,12 +10,24 @@ public static class Extensions
         => new()
         {
             Id = sportEvent.Id,
-            SportType = sportEvent.SportType,
+            SportType = sportEvent.SportType.Sport,
             CreatedBy = sportEvent.CreatedBy,
             CreationDate = sportEvent.CreationDate,
             EventStartDate = sportEvent.EventStartDate,
             EventEndDate = sportEvent.EventEndDate,
             Players = sportEvent.Players.ToList()
+        };
+
+    public static AreaDto AsDto(this Area area)
+        => new()
+        {
+            Id = area.Id,
+            Name = area.Name,
+            StreetAddress = area.StreetAddress,
+            PhoneNumber = area.PhoneNumber.Value,
+            IsOutdoorArea = area.IsOutdoorArea,
+            Latitude = area.Coordinates.Latitude,
+            Longitude = area.Coordinates.Longitude
         };
 
 }

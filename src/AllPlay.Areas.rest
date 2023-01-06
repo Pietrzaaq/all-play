@@ -1,0 +1,22 @@
+@url = https://localhost:7046
+
+@userId = 1
+
+###
+GET {{url}}/areas/{{userId}}
+
+###
+GET {{url}}/areas
+
+###
+POST {{url}}/areas
+Content-Type: application/json
+
+{
+  "name": "Pola marsowe",
+  "streetAddress": "Hanki Sawickiej",
+  "phoneNumber": "+48663506183",
+  "isOutdoorArea": true,
+  "latitude": 51.747904, 
+  "longitude": 18.054499
+}

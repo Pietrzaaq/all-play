@@ -13,8 +13,10 @@ public static class DependencyInjection
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddScoped<ICommandHandler<CreateSportEventCommand>, CreateSportEventCommandHandler>();
+        services.AddScoped<ICommandHandler<CreateAreaCommand>, CreateAreaCommandHandler>();
         services.AddScoped<IQueryHandler<GetSportEventsQuery, SportEventDto>, GetSportEventQueryHandler>();
         services.AddScoped<IQueryHandler<BrowseSportEventsQuery, IReadOnlyList<SportEventDto>>, BrowseSportEventsQueryHandler>();
+        services.AddScoped<IQueryHandler<GetAreaQuery, AreaDto>, GetAreaQueryHandler>();
         
         return services;
     }

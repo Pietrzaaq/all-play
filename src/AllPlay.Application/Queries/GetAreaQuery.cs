@@ -1,7 +1,7 @@
 ﻿using AllPlay.Application.Common.Abstractions;
-using AllPlay.Domain.Entities;
+using AllPlay.Application.DTO;
 
 namespace AllPlay.Application.Queries;
 
 public record GetAreaQuery(
-        Guid Id) : IQuery<Area>;
+        Guid Id) : IQuery<AreaDto>;

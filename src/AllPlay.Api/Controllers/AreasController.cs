@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AllPlay.Api.Controllers;
 
 [ApiController]
-[Route("ares")]
+[Route("areas")]
 public class AreasController : ControllerBase
 {
     private readonly IDispatcher _dispatcher;
@@ -27,7 +27,7 @@ public class AreasController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetArea(Guid id)
     {
-        var result = await _dispatcher.QueryAsync(new GetArea(id));
+        var result = await _dispatcher.QueryAsync(new GetAreaQuery(id));
 
         if (result is null)
         {
@@ -44,7 +44,7 @@ public class AreasController : ControllerBase
 
         if (result is null)
         {
-            throw new ArgumentNullException();
+            return NotFound();
         }
 
         return Ok(result);

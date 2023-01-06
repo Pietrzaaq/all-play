@@ -9,19 +9,25 @@ internal sealed class SportEventConfiguration : IEntityTypeConfiguration<SportEv
 {
     public void Configure(EntityTypeBuilder<SportEvent> builder)
     {
-        builder.HasOne(marker => marker.Area)
+        builder.HasOne(sportEvent => sportEvent.Area)
             .WithMany(area => area.Markers)
-            .HasForeignKey(marker => marker.AreaId)
+            .HasForeignKey(sportEvent => sportEvent.AreaId)
             .OnDelete(DeleteBehavior.NoAction);
 
-        builder.HasMany(marker => marker.Players)
+        builder.HasMany(sportEvent => sportEvent.Players)
             .WithOne()
             .HasForeignKey(x => x.Id);
 
         builder.HasIndex(x => x.Id).IsUnique();
 
-        builder.Property(x => x.CreationDate).IsRequired();
+        builder.Property(x => x.AreaId).IsRequired();
         
+        builder.Property(x => x.SportType)
+            .HasConversion(x => x.Sport, x => new SportType(x));
+
+
+        builder.Property(x => x.CreationDate).IsRequired();
+
         builder.Property(x => x.CreatedBy).IsRequired()
             .HasMaxLength(100);
 
@@ -29,7 +35,5 @@ internal sealed class SportEventConfiguration : IEntityTypeConfiguration<SportEv
         
         builder.Property(x => x.EventEndDate);
         
-        builder.Property(x => x.SportType)
-            .HasConversion(x => x.Sport, x => new SportType(x));
-    }
+   }
 }
