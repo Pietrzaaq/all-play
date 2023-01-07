@@ -31,12 +31,13 @@ public class CreateAreaCommandHandler
         }
 
         var newAreaId = Guid.NewGuid();
+        var phoneNumber = command.IsOutdoorArea.Equals(true) || string.IsNullOrEmpty(command.PhoneNumber) ? null : new PhoneNumber(command.PhoneNumber);
 
         var area = new Area(
             newAreaId,
             command.Name,
             command.StreetAddress,
-            new PhoneNumber(command.PhoneNumber),
+            phoneNumber,
             command.IsOutdoorArea,
             coordinates);
 

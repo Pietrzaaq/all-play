@@ -39,6 +39,8 @@ public class SportEventRepository : ISportEventRepository
 
     public async Task<IReadOnlyList<SportEvent>> BrowseAsync()
     {
-        return await _markers.ToListAsync();
+        return await _markers
+            .Include(x => x.Players)
+            .ToListAsync();
     }
 }
