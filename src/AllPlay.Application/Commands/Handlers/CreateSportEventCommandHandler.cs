@@ -32,10 +32,9 @@ public class CreateSportEventCommandHandler
                 command.EventEndDate);
         }
 
-        var newSportEventId = Guid.NewGuid();
 
         var sportEvent = SportEvent.Create(
-            newSportEventId, 
+            command.Id, 
             command.AreaId,
             new SportType(command.SportType),
             command.CreatedBy,

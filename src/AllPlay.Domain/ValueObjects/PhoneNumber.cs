@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using AllPlay.Domain.Exceptions;
 
-namespace AllPlay.Domain.Common.ValueObjects;
+namespace AllPlay.Domain.ValueObjects;
 
 public class PhoneNumber
 {

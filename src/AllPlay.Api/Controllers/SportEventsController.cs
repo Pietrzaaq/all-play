@@ -19,7 +19,7 @@ public class SportEventsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateSportEvent(CreateSportEventCommand command)
     {
-        await _dispatcher.SendAsync(command);
+        await _dispatcher.SendAsync(command with {Id = Guid.NewGuid()});
 
         return Ok();
     }

@@ -141,7 +141,7 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("AllPlay.Domain.Entities.SportEvent", b =>
                 {
                     b.HasOne("AllPlay.Domain.Entities.Area", "Area")
-                        .WithMany("Markers")
+                        .WithMany("SportEvents")
                         .HasForeignKey("AreaId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -151,7 +151,7 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("AllPlay.Domain.Entities.Area", b =>
                 {
-                    b.Navigation("Markers");
+                    b.Navigation("SportEvents");
                 });
 
             modelBuilder.Entity("AllPlay.Domain.Entities.SportEvent", b =>

@@ -1,5 +1,5 @@
-﻿using AllPlay.Domain.Common.ValueObjects;
-using AllPlay.Domain.Entities;
+﻿using AllPlay.Domain.Entities;
+using AllPlay.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

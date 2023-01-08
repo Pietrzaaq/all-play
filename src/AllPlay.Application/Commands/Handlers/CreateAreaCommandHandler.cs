@@ -1,7 +1,6 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
 using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.Exceptions;
-using AllPlay.Domain.Common.ValueObjects;
 using AllPlay.Domain.Entities;
 using AllPlay.Domain.ValueObjects;
 
@@ -30,11 +29,10 @@ public class CreateAreaCommandHandler
                 coordinates.Longitude);
         }
 
-        var newAreaId = Guid.NewGuid();
         var phoneNumber = command.IsOutdoorArea.Equals(true) || string.IsNullOrEmpty(command.PhoneNumber) ? null : new PhoneNumber(command.PhoneNumber);
 
         var area = new Area(
-            newAreaId,
+            command.Id,
             command.Name,
             command.StreetAddress,
             phoneNumber,

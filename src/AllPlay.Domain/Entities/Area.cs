@@ -1,12 +1,11 @@
-﻿using AllPlay.Domain.Common.ValueObjects;
-using AllPlay.Domain.ValueObjects;
+﻿using AllPlay.Domain.ValueObjects;
 
 namespace AllPlay.Domain.Entities;
 
 public class Area
 {
     // private readonly List<SportType> _availableSportTypes = new();
-    private readonly List<SportEvent> _markers = new();
+    private readonly List<SportEvent> _sportEvents = new();
     
     public Guid Id { get; }
     public string Name { get; }
@@ -18,7 +17,7 @@ public class Area
 
     // public IReadOnlyList<SportType> AvailableSportTypes => _availableSportTypes.AsReadOnly();
 
-    public IReadOnlyList<SportEvent> Markers => _markers.AsReadOnly();
+    public IReadOnlyList<SportEvent> SportEvents => _sportEvents.AsReadOnly();
 
     public Area()
     {
@@ -33,5 +32,10 @@ public class Area
         PhoneNumber = phoneNumber;
         IsOutdoorArea = isOutdoorArea;
         Coordinates = coordinates;
+    }
+
+    public void AddSportEvent(SportEvent sportEvent)
+    {
+        _sportEvents.Add(sportEvent);
     }
 }

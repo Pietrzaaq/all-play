@@ -1,9 +1,9 @@
 ﻿using AllPlay.Application.Common.Abstractions;
-using AllPlay.Domain.Common.ValueObjects;
 
 namespace AllPlay.Application.Commands;
 
 public record CreateAreaCommand(
+    Guid Id,
     string Name,
     string StreetAddress,
     string PhoneNumber,

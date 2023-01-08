@@ -24,7 +24,7 @@ public static class Extensions
             Id = area.Id,
             Name = area.Name,
             StreetAddress = area.StreetAddress,
-            PhoneNumber = area.PhoneNumber.Value,
+            PhoneNumber = area.PhoneNumber?.Value,
             IsOutdoorArea = area.IsOutdoorArea,
             Latitude = area.Coordinates.Latitude,
             Longitude = area.Coordinates.Longitude

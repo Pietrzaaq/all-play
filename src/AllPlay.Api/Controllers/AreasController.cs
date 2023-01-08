@@ -19,7 +19,7 @@ public class AreasController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateArea(CreateAreaCommand command)
     {
-        await _dispatcher.SendAsync(command);
+        await _dispatcher.SendAsync(command with {Id = Guid.NewGuid()});
 
         return Ok();
     }

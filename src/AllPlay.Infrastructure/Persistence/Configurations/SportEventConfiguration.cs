@@ -10,7 +10,7 @@ internal sealed class SportEventConfiguration : IEntityTypeConfiguration<SportEv
     public void Configure(EntityTypeBuilder<SportEvent> builder)
     {
         builder.HasOne(sportEvent => sportEvent.Area)
-            .WithMany(area => area.Markers)
+            .WithMany(area => area.SportEvents)
             .HasForeignKey(sportEvent => sportEvent.AreaId)
             .OnDelete(DeleteBehavior.NoAction);
 
