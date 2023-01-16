@@ -13,10 +13,9 @@ public sealed class SportEvent
     public DateTime CreationDate { get; }
     public DateTime EventStartDate { get; }
     public DateTime EventEndDate { get; }
-    public Area Area { get; set; }
     public IReadOnlyList<Player> Players => _players.AsReadOnly();
 
-    public SportEvent()
+    private SportEvent()
     {
         
     }
@@ -57,5 +56,10 @@ public sealed class SportEvent
             eventStartDate,
             eventEndDate
         );
+    }
+
+    public void AddPlayer(Player player)
+    {
+        _players.Add(player);
     }
 }

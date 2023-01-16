@@ -23,12 +23,13 @@ public class AreaRepository : IAreaRepository
     public async Task<IReadOnlyList<Area>> BrowseAsync()
         => await _areas
             .Include(x => x.SportEvents)
-            // .ThenInclude(y => y.Players)
+            .ThenInclude(y => y.Players)
             .ToListAsync();
 
     public async Task<bool> ExistsAsync(Guid id) =>
         await _areas.AnyAsync(x => x.Id == id);
 
+    //TODO - Implement real map browsing
     public async Task<bool> ExistsAsync(Coordinates coordinates)
     {
         return await _areas.AnyAsync(x =>

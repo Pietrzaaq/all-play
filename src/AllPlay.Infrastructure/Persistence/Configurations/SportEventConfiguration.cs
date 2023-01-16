@@ -9,11 +9,6 @@ internal sealed class SportEventConfiguration : IEntityTypeConfiguration<SportEv
 {
     public void Configure(EntityTypeBuilder<SportEvent> builder)
     {
-        builder.HasOne(sportEvent => sportEvent.Area)
-            .WithMany(area => area.SportEvents)
-            .HasForeignKey(sportEvent => sportEvent.AreaId)
-            .OnDelete(DeleteBehavior.NoAction);
-
         builder.HasMany(sportEvent => sportEvent.Players)
             .WithOne()
             .HasForeignKey(x => x.Id);
@@ -24,7 +19,6 @@ internal sealed class SportEventConfiguration : IEntityTypeConfiguration<SportEv
         
         builder.Property(x => x.SportType)
             .HasConversion(x => x.Sport, x => new SportType(x));
-
 
         builder.Property(x => x.CreationDate).IsRequired();
 

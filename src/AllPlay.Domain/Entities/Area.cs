@@ -19,7 +19,7 @@ public class Area
 
     public IReadOnlyList<SportEvent> SportEvents => _sportEvents.AsReadOnly();
 
-    public Area()
+    private Area()
     {
         
     }

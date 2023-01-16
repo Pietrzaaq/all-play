@@ -9,6 +9,10 @@ public class AreaConfiguration : IEntityTypeConfiguration<Area>
 {
     public void Configure(EntityTypeBuilder<Area> builder)
     {
+        builder.HasMany(area => area.SportEvents)
+            .WithOne()
+            .HasForeignKey(x => x.AreaId);
+        
         builder.HasIndex(x => x.Id).IsUnique();
 
         builder.Property(x => x.Name).IsRequired();
