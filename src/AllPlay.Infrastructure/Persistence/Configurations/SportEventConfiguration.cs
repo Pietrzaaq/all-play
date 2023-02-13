@@ -1,5 +1,6 @@
 ﻿using AllPlay.Domain.Entities;
 using AllPlay.Domain.ValueObjects;
+using AllPlay.Domain.ValueObjects.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -9,13 +10,14 @@ internal sealed class SportEventConfiguration : IEntityTypeConfiguration<SportEv
 {
     public void Configure(EntityTypeBuilder<SportEvent> builder)
     {
-        builder.HasMany(sportEvent => sportEvent.Players)
-            .WithOne()
-            .HasForeignKey(x => x.Id);
+        builder.HasMany(sportEvent => sportEvent.Players);
 
         builder.HasIndex(x => x.Id).IsUnique();
 
         builder.Property(x => x.AreaId).IsRequired();
+
+        builder.Property(x => x.AreaId)
+            .HasConversion(x => x.Value, x => new Id(x));
         
         builder.Property(x => x.SportType)
             .HasConversion(x => x.Sport, x => new SportType(x));

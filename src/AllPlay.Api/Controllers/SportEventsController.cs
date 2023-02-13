@@ -21,7 +21,7 @@ public class SportEventsController : ControllerBase
     {
         await _dispatcher.SendAsync(command with {Id = Guid.NewGuid()});
 
-        return Ok();
+        return NoContent();
     }
 
     [HttpGet("{id:guid}")]

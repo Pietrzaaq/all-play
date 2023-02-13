@@ -1,4 +1,5 @@
 ﻿using AllPlay.Domain.ValueObjects;
+using AllPlay.Domain.ValueObjects.Common;
 
 namespace AllPlay.Domain.Entities;
 
@@ -7,7 +8,7 @@ public sealed class SportEvent
     private readonly List<Player> _players = new ();
     
     public Guid Id { get; }
-    public Guid AreaId { get; }
+    public Id AreaId { get; }
     public SportType SportType { get; }
     public string CreatedBy { get; }
     public DateTime CreationDate { get; }

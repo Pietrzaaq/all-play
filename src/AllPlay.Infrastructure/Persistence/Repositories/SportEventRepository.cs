@@ -1,5 +1,6 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
 using AllPlay.Domain.Entities;
+using AllPlay.Domain.ValueObjects.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllPlay.Infrastructure.Persistence.Repositories;
@@ -25,10 +26,10 @@ public class SportEventRepository : ISportEventRepository
 
     public async Task<bool> ExistsAsync(Guid areaId, DateTime eventStartTime, DateTime eventEndTime)
     {
-        return await _sportEvents.AnyAsync(marker => 
-            marker.AreaId == areaId &&
-            marker.EventStartDate >= eventStartTime &&
-            marker.EventEndDate <= eventStartTime);
+        return await _sportEvents.AnyAsync(sportEvent => 
+            sportEvent.AreaId == new Id(areaId) &&
+            sportEvent.EventStartDate >= eventStartTime &&
+            sportEvent.EventEndDate <= eventStartTime);
     }
 
     public async Task AddAsync(SportEvent sportEvent)

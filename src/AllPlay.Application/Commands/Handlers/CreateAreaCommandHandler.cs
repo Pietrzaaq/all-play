@@ -3,6 +3,7 @@ using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.Exceptions;
 using AllPlay.Domain.Entities;
 using AllPlay.Domain.ValueObjects;
+using AllPlay.Domain.ValueObjects.Common;
 
 namespace AllPlay.Application.Commands.Handlers;
 

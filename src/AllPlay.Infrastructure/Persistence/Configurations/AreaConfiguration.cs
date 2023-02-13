@@ -1,5 +1,5 @@
 ﻿using AllPlay.Domain.Entities;
-using AllPlay.Domain.ValueObjects;
+using AllPlay.Domain.ValueObjects.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,6 +14,9 @@ public class AreaConfiguration : IEntityTypeConfiguration<Area>
             .HasForeignKey(x => x.AreaId);
         
         builder.HasIndex(x => x.Id).IsUnique();
+
+        builder.Property(x => x.Id)
+            .HasConversion(x => x.Value, x => new Id(x));
 
         builder.Property(x => x.Name).IsRequired();
 

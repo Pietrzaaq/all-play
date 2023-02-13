@@ -1,4 +1,5 @@
 ﻿using AllPlay.Domain.ValueObjects;
+using AllPlay.Domain.ValueObjects.Common;
 
 namespace AllPlay.Domain.Entities;
 
@@ -7,7 +8,7 @@ public class Area
     // private readonly List<SportType> _availableSportTypes = new();
     private readonly List<SportEvent> _sportEvents = new();
     
-    public Guid Id { get; }
+    public Id Id { get; }
     public string Name { get; }
     public string StreetAddress { get; }
     public PhoneNumber PhoneNumber { get; }
@@ -24,7 +25,7 @@ public class Area
         
     }
     
-    public Area(Guid id, string name, string streetAddress, PhoneNumber phoneNumber, bool isOutdoorArea, Coordinates coordinates)
+    public Area(Id id, string name, string streetAddress, PhoneNumber phoneNumber, bool isOutdoorArea, Coordinates coordinates)
     {
         Id = id;
         Name = name;

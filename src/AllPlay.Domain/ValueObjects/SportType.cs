@@ -2,7 +2,7 @@
 
 namespace AllPlay.Domain.ValueObjects;
 
-public record SportType
+public sealed record SportType
 {
 
     public string Sport { get; }

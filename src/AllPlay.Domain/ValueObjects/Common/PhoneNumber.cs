@@ -1,9 +1,9 @@
 ﻿using System.Text.RegularExpressions;
 using AllPlay.Domain.Exceptions;
 
-namespace AllPlay.Domain.ValueObjects;
+namespace AllPlay.Domain.ValueObjects.Common;
 
-public class PhoneNumber
+public sealed record PhoneNumber
 {
     public string Value { get; }
     private readonly string _phoneNumberRegex = @"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$";
