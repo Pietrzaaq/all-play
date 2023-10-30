@@ -5,7 +5,6 @@ namespace AllPlay.Domain.Entities;
 
 public class Area
 {
-    // private readonly List<SportType> _availableSportTypes = new();
     private readonly List<SportEvent> _sportEvents = new();
     
     public Id Id { get; }
@@ -16,8 +15,6 @@ public class Area
     
     public Coordinates Coordinates { get; }
 
-    // public IReadOnlyList<SportType> AvailableSportTypes => _availableSportTypes.AsReadOnly();
-
     public IReadOnlyList<SportEvent> SportEvents => _sportEvents.AsReadOnly();
 
     private Area()
@@ -25,7 +22,13 @@ public class Area
         
     }
     
-    public Area(Id id, string name, string streetAddress, PhoneNumber phoneNumber, bool isOutdoorArea, Coordinates coordinates)
+    public Area(
+        Id id,
+        string name,
+        string streetAddress,
+        PhoneNumber phoneNumber,
+        bool isOutdoorArea,
+        Coordinates coordinates)
     {
         Id = id;
         Name = name;

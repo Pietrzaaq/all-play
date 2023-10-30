@@ -2,7 +2,7 @@
 
 public class Player
 {
-    public Player()
+    private Player()
     {
         
     }

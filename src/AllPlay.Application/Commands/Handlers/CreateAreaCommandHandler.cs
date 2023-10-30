@@ -30,7 +30,9 @@ public class CreateAreaCommandHandler
                 coordinates.Longitude);
         }
 
-        var phoneNumber = command.IsOutdoorArea.Equals(true) || string.IsNullOrEmpty(command.PhoneNumber) ? null : new PhoneNumber(command.PhoneNumber);
+        var phoneNumber = command.IsOutdoorArea.Equals(true) || string.IsNullOrEmpty(command.PhoneNumber)
+            ? null
+            : new PhoneNumber(command.PhoneNumber);
 
         var area = new Area(
             command.Id,

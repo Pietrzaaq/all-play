@@ -21,7 +21,7 @@ public sealed class SportEvent
         
     }
     
-    private SportEvent(
+    public SportEvent(
         Guid id,
         Guid areaId,
         SportType sportType,
@@ -37,26 +37,6 @@ public sealed class SportEvent
         CreationDate = creationDate;
         EventStartDate = eventStartDate;
         EventEndDate = eventEndDate;
-    }
-
-    public static SportEvent Create(
-        Guid id,
-        Guid areaId,
-        SportType sportType,
-        string createdBy,
-        DateTime creationDate, 
-        DateTime eventStartDate,
-        DateTime eventEndDate)
-    {
-        return new(
-            id,
-            areaId,
-            sportType,
-            createdBy,
-            creationDate, 
-            eventStartDate,
-            eventEndDate
-        );
     }
 
     public void AddPlayer(Player player)
