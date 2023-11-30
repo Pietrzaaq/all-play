@@ -2,8 +2,22 @@ using AllPlay.Api;
 using AllPlay.Application;
 using AllPlay.Infrastructure;
 
+var allowOrigins = "AllowOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 {
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy(name: allowOrigins,
+            policy  =>
+            {
+                policy.WithOrigins()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+            });
+    });
+    
     builder.Services
         .AddApplication()
         .AddInfrastructure(builder.Configuration)
@@ -19,6 +33,7 @@ var app = builder.Build();
     }
 
     app.UseHttpsRedirection();
+    app.UseCors(allowOrigins);
     app.MapControllers();
     app.Run();
 }

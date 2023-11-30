@@ -1,4 +1,5 @@
 ﻿using AllPlay.Application.Common.Abstractions;
+using MediatR;
 
 namespace AllPlay.Application.Commands;
 
@@ -10,4 +11,4 @@ public record CreateAreaCommand(
     bool IsOutdoorArea,
     double Latitude,
     double Longitude
-    ) : ICommand;
+    ) : IRequest;

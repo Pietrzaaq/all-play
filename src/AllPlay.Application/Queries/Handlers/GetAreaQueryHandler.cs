@@ -2,11 +2,12 @@
 using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.DTO;
 using AllPlay.Application.Exceptions;
+using MediatR;
 
 namespace AllPlay.Application.Queries.Handlers;
 
 public class GetAreaQueryHandler
-    : IQueryHandler<GetAreaQuery, AreaDto>
+    : IRequestHandler<GetAreaQuery, AreaDto>
 {
     private readonly IAreaRepository _areaRepository;
 
@@ -15,7 +16,7 @@ public class GetAreaQueryHandler
         _areaRepository = areaRepository;
     }
 
-    public async Task<AreaDto> HandleAsync(GetAreaQuery query)
+    public async Task<AreaDto> Handle(GetAreaQuery query, CancellationToken cancellationToken)
     {
         var area = await _areaRepository.GetAsync(query.Id);
 

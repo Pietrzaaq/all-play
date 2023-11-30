@@ -1,11 +1,12 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
 using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.DTO;
+using MediatR;
 
 namespace AllPlay.Application.Queries.Handlers;
 
 public class BrowseSportEventsQueryHandler :
-    IQueryHandler<BrowseSportEventsQuery , IReadOnlyList<SportEventDto>>
+    IRequestHandler<BrowseSportEventsQuery , IReadOnlyList<SportEventDto>>
 {
     private readonly ISportEventRepository _sportEventRepository;
 
@@ -14,7 +15,7 @@ public class BrowseSportEventsQueryHandler :
         _sportEventRepository = sportEventRepository;
     }
 
-    public async Task<IReadOnlyList<SportEventDto>> HandleAsync(BrowseSportEventsQuery query)
+    public async Task<IReadOnlyList<SportEventDto>> Handle(BrowseSportEventsQuery query, CancellationToken cancellationToken)
     {
         var sportEvents = await _sportEventRepository.BrowseAsync();
 

@@ -4,11 +4,12 @@ using AllPlay.Application.Exceptions;
 using AllPlay.Domain.Entities;
 using AllPlay.Domain.ValueObjects;
 using AllPlay.Domain.ValueObjects.Common;
+using MediatR;
 
 namespace AllPlay.Application.Commands.Handlers;
 
 public class CreateAreaCommandHandler
-    : ICommandHandler<CreateAreaCommand>
+    : IRequestHandler<CreateAreaCommand>
 {
     private readonly IAreaRepository _areaRepository;
 
@@ -17,7 +18,7 @@ public class CreateAreaCommandHandler
         _areaRepository = areaRepository;
     }
 
-    public async Task HandleAsync(CreateAreaCommand command)
+    public async Task Handle(CreateAreaCommand command, CancellationToken cancellationToken)
     {
         var coordinates = new Coordinates(command.Latitude, command.Longitude);
 

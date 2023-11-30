@@ -1,11 +1,12 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
 using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.DTO;
+using MediatR;
 
 namespace AllPlay.Application.Queries.Handlers;
 
 public class BrowseAreasQueryHandler : 
-    IQueryHandler<BrowseAreasQuery, IReadOnlyList<AreaDto>>
+    IRequestHandler<BrowseAreasQuery, IReadOnlyList<AreaDto>>
 {
     private readonly IAreaRepository _areaRepository;
 
@@ -14,7 +15,7 @@ public class BrowseAreasQueryHandler :
         _areaRepository = areaRepository;
     }
 
-    public async Task<IReadOnlyList<AreaDto>> HandleAsync(BrowseAreasQuery query)
+    public async Task<IReadOnlyList<AreaDto>> Handle(BrowseAreasQuery query,  CancellationToken cancellationToken)
     {
         var areas = await _areaRepository.BrowseAsync();
         

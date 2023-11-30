@@ -1,11 +1,11 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
-using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.Exceptions;
+using MediatR;
 
 namespace AllPlay.Application.Commands.Handlers;
 
 public class UpdateAreaCommandHandler
-    : ICommandHandler<UpdateAreaCommand>
+    : IRequestHandler<UpdateAreaCommand>
 {
     private readonly IAreaRepository _areaRepository;
 
@@ -15,7 +15,7 @@ public class UpdateAreaCommandHandler
         
     }
 
-    public async Task HandleAsync(UpdateAreaCommand command)
+    public async Task Handle(UpdateAreaCommand command, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 
@@ -25,6 +25,5 @@ public class UpdateAreaCommandHandler
         {
             throw new AreaNotFoundException(command.Id);
         }
-        
     }
 }

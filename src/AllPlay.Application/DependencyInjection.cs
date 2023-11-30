@@ -1,9 +1,5 @@
-﻿using AllPlay.Application.Commands;
-using AllPlay.Application.Commands.Handlers;
-using AllPlay.Application.Common.Abstractions;
-using AllPlay.Application.DTO;
-using AllPlay.Application.Queries;
-using AllPlay.Application.Queries.Handlers;
+﻿using System.Reflection;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AllPlay.Application;
@@ -12,13 +8,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<ICommandHandler<CreateSportEventCommand>, CreateSportEventCommandHandler>();
-        services.AddScoped<ICommandHandler<CreateAreaCommand>, CreateAreaCommandHandler>();
-        services.AddScoped<IQueryHandler<GetSportEventsQuery, SportEventDto>, GetSportEventQueryHandler>();
-        services.AddScoped<IQueryHandler<BrowseSportEventsQuery, IReadOnlyList<SportEventDto>>, BrowseSportEventsQueryHandler>();
-        services.AddScoped<IQueryHandler<BrowseAreasQuery, IReadOnlyList<AreaDto>>, BrowseAreasQueryHandler>();
-        services.AddScoped<IQueryHandler<GetAreaQuery, AreaDto>, GetAreaQueryHandler>();
-        
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
         return services;
     }
 }
