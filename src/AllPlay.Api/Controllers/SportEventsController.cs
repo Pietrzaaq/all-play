@@ -1,5 +1,4 @@
 ﻿using AllPlay.Application.Commands;
-using AllPlay.Application.Map.Commands;
 using AllPlay.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
