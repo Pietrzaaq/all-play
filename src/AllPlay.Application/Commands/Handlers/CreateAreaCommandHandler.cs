@@ -36,7 +36,7 @@ public class CreateAreaCommandHandler
             : new PhoneNumber(command.PhoneNumber);
 
         var area = new Area(
-            command.Id,
+            Guid.NewGuid(),
             command.Name,
             command.StreetAddress,
             phoneNumber,
