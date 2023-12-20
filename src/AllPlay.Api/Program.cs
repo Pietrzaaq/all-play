@@ -1,6 +1,7 @@
 using AllPlay.Api;
 using AllPlay.Application;
 using AllPlay.Infrastructure;
+using Microsoft.OpenApi.Models;
 
 var allowOrigins = "AllowOrigins";
 
@@ -16,6 +17,15 @@ var builder = WebApplication.CreateBuilder(args);
                     .AllowAnyMethod()
                     .AllowAnyOrigin();
             });
+    });
+    
+    builder.Services.AddSwaggerGen(swagger =>
+    {
+        swagger.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = builder.Configuration["Api:Name"],
+            Version = builder.Configuration["Api:Version"]
+        });
     });
     
     builder.Services

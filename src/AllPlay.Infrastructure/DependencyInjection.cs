@@ -13,6 +13,7 @@ public static class DependencyInjection
     {
         services.AddDatabase(configuration);
         services.AddScoped<IDateTimeProvider, DateTimeProvider>();
+        
         return services;
     }
 }
