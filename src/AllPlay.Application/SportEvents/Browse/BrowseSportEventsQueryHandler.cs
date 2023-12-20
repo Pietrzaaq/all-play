@@ -1,9 +1,8 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
-using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.DTO;
 using MediatR;
 
-namespace AllPlay.Application.Queries.Handlers;
+namespace AllPlay.Application.SportEvents.Browse;
 
 public class BrowseSportEventsQueryHandler :
     IRequestHandler<BrowseSportEventsQuery , IReadOnlyList<SportEventDto>>

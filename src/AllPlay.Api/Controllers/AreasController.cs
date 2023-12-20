@@ -1,5 +1,6 @@
-﻿using AllPlay.Application.Commands;
-using AllPlay.Application.Queries;
+﻿using AllPlay.Application.Areas.Browse;
+using AllPlay.Application.Areas.Create;
+using AllPlay.Application.Areas.Get;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

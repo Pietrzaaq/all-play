@@ -2,7 +2,7 @@
 using AllPlay.Application.Exceptions;
 using MediatR;
 
-namespace AllPlay.Application.Commands.Handlers;
+namespace AllPlay.Application.Areas.Update;
 
 public class UpdateAreaCommandHandler
     : IRequestHandler<UpdateAreaCommand>

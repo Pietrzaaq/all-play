@@ -1,10 +1,9 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
-using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.DTO;
 using AllPlay.Application.Exceptions;
 using MediatR;
 
-namespace AllPlay.Application.Queries.Handlers;
+namespace AllPlay.Application.SportEvents.Get;
 
 public class GetSportEventQueryHandler : 
         IRequestHandler<GetSportEventsQuery , SportEventDto>

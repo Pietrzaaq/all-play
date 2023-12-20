@@ -1,14 +1,12 @@
-﻿using AllPlay.Application.Abstractions;
 using MediatR;
 
-namespace AllPlay.Application.Map.Commands;
-
+namespace AllPlay.Application.SportEvents.Create;
 
 public record CreateSportEventCommand(
-    Guid Id,
     Guid AreaId,
     string SportType,
     string CreatedBy,
+    DateTime CreationDate,
     DateTime EventStartDate,
     DateTime EventEndDate 
-) : IRequest;
+    ) : IRequest;

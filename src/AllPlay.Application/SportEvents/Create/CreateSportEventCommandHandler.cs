@@ -1,11 +1,10 @@
 using AllPlay.Application.Abstractions.Repositories;
-using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.Exceptions;
 using AllPlay.Domain.Entities;
 using AllPlay.Domain.ValueObjects;
 using MediatR;
 
-namespace AllPlay.Application.Commands.Handlers;
+namespace AllPlay.Application.SportEvents.Create;
 
 public class CreateSportEventCommandHandler
     : IRequestHandler<CreateSportEventCommand>

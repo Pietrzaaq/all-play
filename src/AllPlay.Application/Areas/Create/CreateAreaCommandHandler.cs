@@ -1,12 +1,11 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
-using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.Exceptions;
 using AllPlay.Domain.Entities;
 using AllPlay.Domain.ValueObjects;
 using AllPlay.Domain.ValueObjects.Common;
 using MediatR;
 
-namespace AllPlay.Application.Commands.Handlers;
+namespace AllPlay.Application.Areas.Create;
 
 public class CreateAreaCommandHandler
     : IRequestHandler<CreateAreaCommand>

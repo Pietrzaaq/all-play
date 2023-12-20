@@ -1,10 +1,8 @@
-﻿using AllPlay.Application.Common.Abstractions;
-using MediatR;
+﻿using MediatR;
 
-namespace AllPlay.Application.Commands;
+namespace AllPlay.Application.Areas.Create;
 
-public record UpdateAreaCommand(
-    Guid Id,
+public record CreateAreaCommand(
     string Name,
     string StreetAddress,
     string PhoneNumber,

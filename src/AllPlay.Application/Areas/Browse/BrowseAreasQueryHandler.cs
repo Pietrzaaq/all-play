@@ -1,9 +1,8 @@
 ﻿using AllPlay.Application.Abstractions.Repositories;
-using AllPlay.Application.Common.Abstractions;
 using AllPlay.Application.DTO;
 using MediatR;
 
-namespace AllPlay.Application.Queries.Handlers;
+namespace AllPlay.Application.Areas.Browse;
 
 public class BrowseAreasQueryHandler : 
     IRequestHandler<BrowseAreasQuery, IReadOnlyList<AreaDto>>

@@ -1,8 +1,9 @@
 ﻿using MediatR;
 
-namespace AllPlay.Application.Commands;
+namespace AllPlay.Application.Areas.Update;
 
-public record CreateAreaCommand(
+public record UpdateAreaCommand(
+    Guid Id,
     string Name,
     string StreetAddress,
     string PhoneNumber,

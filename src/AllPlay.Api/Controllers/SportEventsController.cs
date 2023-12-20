@@ -1,5 +1,6 @@
-﻿using AllPlay.Application.Commands;
-using AllPlay.Application.Queries;
+﻿using AllPlay.Application.SportEvents.Browse;
+using AllPlay.Application.SportEvents.Create;
+using AllPlay.Application.SportEvents.Get;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
