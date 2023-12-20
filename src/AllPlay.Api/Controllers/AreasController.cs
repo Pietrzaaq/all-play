@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AllPlay.Api.Controllers;
 
 [ApiController]
-[Route("areas")]
+[Route("api/areas")]
 public class AreasController : ControllerBase
 {
     private readonly ISender _mediator;

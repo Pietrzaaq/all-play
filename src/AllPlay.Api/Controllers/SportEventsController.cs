@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AllPlay.Api.Controllers;
 
 [ApiController]
-[Route("sport-events")]
+[Route("api/sport-events")]
 public class SportEventsController : ControllerBase
 {
     private readonly ISender _mediator;
@@ -19,7 +19,7 @@ public class SportEventsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateSportEvent(CreateSportEventCommand command)
     {
-        await _mediator.Send(command with {Id = Guid.NewGuid()});
+        await _mediator.Send(command);
 
         return NoContent();
     }
