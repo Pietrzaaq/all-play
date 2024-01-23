@@ -1,4 +1,5 @@
-﻿using AllPlay.Application.Abstractions.Repositories;
+﻿using AllPlay.Application.Abstractions.Geolocation;
+using AllPlay.Application.Abstractions.Repositories;
 using AllPlay.Application.Exceptions;
 using AllPlay.Domain.Entities;
 using AllPlay.Domain.ValueObjects;
@@ -11,10 +12,12 @@ public class CreateAreaCommandHandler
     : IRequestHandler<CreateAreaCommand>
 {
     private readonly IAreaRepository _areaRepository;
+    private readonly IGeolocationService _geolocationService;
 
-    public CreateAreaCommandHandler(IAreaRepository areaRepository)
+    public CreateAreaCommandHandler(IAreaRepository areaRepository, IGeolocationService geolocationService)
     {
         _areaRepository = areaRepository;
+        _geolocationService = geolocationService;
     }
 
     public async Task Handle(CreateAreaCommand command, CancellationToken cancellationToken)

@@ -24,11 +24,5 @@ public class AreaConfiguration : IEntityTypeConfiguration<Area>
 
         builder.Property(x => x.PhoneNumber)
             .HasConversion(x => x.Value, x => new PhoneNumber(x));
-
-        builder.OwnsOne(x => x.Coordinates)
-            .Property(x => x.Latitude).HasColumnName("Latitude");
-        
-        builder.OwnsOne(x => x.Coordinates)
-            .Property(x => x.Longitude).HasColumnName("Longitude");
     }    
 }

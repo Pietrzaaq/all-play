@@ -1,6 +1,6 @@
-﻿using AllPlay.Application.Common.Abstractions;
+﻿using AllPlay.Application.Abstractions.Common;
 
-namespace AllPlay.Infrastructure.Services;
+namespace AllPlay.Infrastructure.Services.Common;
 
 public class DateTimeProvider : IDateTimeProvider
 {

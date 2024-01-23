@@ -1,4 +1,4 @@
-﻿namespace AllPlay.Application.Common.Abstractions;
+﻿namespace AllPlay.Application.Abstractions.Common;
 
 public interface IDateTimeProvider
 {

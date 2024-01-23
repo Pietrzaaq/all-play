@@ -32,9 +32,7 @@ public class AreaRepository : IAreaRepository
     //TODO - Implement real map browsing
     public async Task<bool> ExistsAsync(Coordinates coordinates)
     {
-        return await _areas.AnyAsync(x =>
-            x.Coordinates.Latitude == coordinates.Latitude &&
-            x.Coordinates.Longitude == coordinates.Longitude);
+        return await _areas.AnyAsync(x => true);
     }
 
     public async Task AddAsync(Area area)

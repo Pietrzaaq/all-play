@@ -26,8 +26,6 @@ public static class Extensions
             StreetAddress = area.StreetAddress,
             PhoneNumber = area.PhoneNumber?.Value,
             IsOutdoorArea = area.IsOutdoorArea,
-            Latitude = area.Coordinates.Latitude,
-            Longitude = area.Coordinates.Longitude,
             SportEvents = area.SportEvents.ToList()
         };
 
