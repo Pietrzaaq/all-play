@@ -24,7 +24,7 @@ public class BrowseAreasQueryHandler :
         }
 
         var areasDto = areas.Select(x => x.AsDto()).ToList();
-
+        
         return areasDto;
     }
 }

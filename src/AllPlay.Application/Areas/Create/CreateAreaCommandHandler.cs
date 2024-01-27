@@ -37,13 +37,7 @@ public class CreateAreaCommandHandler
             ? null
             : new PhoneNumber(command.PhoneNumber);
 
-        var area = new Area(
-            Guid.NewGuid(),
-            command.Name,
-            command.StreetAddress,
-            phoneNumber,
-            command.IsOutdoorArea,
-            coordinates);
+        var area = new Area();
 
         await _areaRepository.AddAsync(area);
     }
