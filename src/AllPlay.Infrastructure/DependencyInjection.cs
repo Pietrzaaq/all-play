@@ -16,7 +16,7 @@ public static class DependencyInjection
     {
         NetTopologySuite.NtsGeometryServices.Instance = new NetTopologySuite.NtsGeometryServices(
             NetTopologySuite.Geometries.Implementation.CoordinateArraySequenceFactory.Instance,
-            new NetTopologySuite.Geometries.PrecisionModel(1000d),
+            new NetTopologySuite.Geometries.PrecisionModel(100000d),
             4326, 
             NetTopologySuite.Geometries.GeometryOverlay.NG,
             new NetTopologySuite.Geometries.CoordinateEqualityComparer());
