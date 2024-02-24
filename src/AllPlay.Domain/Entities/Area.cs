@@ -18,8 +18,10 @@ public class Area
     public PhoneNumber PhoneNumber { get; }
     public bool IsOutdoorArea { get; }
     
-    public Point Coordinates { get; }
+    public Point Point { get; }
     public Polygon Polygon { get; }
+    
+    public AllPlay.Domain.ValueObjects.Coordinates Coordinates { get; }
 
     public IReadOnlyList<SportEvent> SportEvents => _sportEvents.AsReadOnly();
 
@@ -38,8 +40,9 @@ public class Area
         string formattedAddress,
         PhoneNumber phoneNumber,
         bool isOutdoorArea,
-        Point coordinates,
-        Polygon polygon)
+        Point point,
+        Polygon polygon,
+        AllPlay.Domain.ValueObjects.Coordinates coordinates)
     {
         Id = id;
         Name = name;
@@ -50,8 +53,9 @@ public class Area
         FormattedAddress = formattedAddress;
         PhoneNumber = phoneNumber;
         IsOutdoorArea = isOutdoorArea;
-        Coordinates = coordinates;
+        Point = point;
         Polygon = polygon;
+        Coordinates = coordinates;
     }
 
     public void AddSportEvent(SportEvent sportEvent)

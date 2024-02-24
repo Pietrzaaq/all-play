@@ -49,10 +49,18 @@ public class AreaConfiguration : IEntityTypeConfiguration<Area>
 
         builder.Property(x => x.IsOutdoorArea);
         
-        builder.Property(x => x.Coordinates)
-            .IsRequired();
-        
         builder.Property(x => x.Polygon)
             .IsRequired();
+        
+        builder.Property(x => x.Point)
+            .IsRequired();
+        
+        builder.OwnsOne(x => x.Coordinates)
+            .Property(x => x.Latitude)
+            .HasColumnName("Latitude");
+        
+        builder.OwnsOne(x => x.Coordinates)
+            .Property(x => x.Longitude)
+            .HasColumnName("Longitude");
     }    
 }

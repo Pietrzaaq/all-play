@@ -4,6 +4,7 @@ using AllPlay.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace AllPlay.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AllPlayDbContext))]
-    partial class AllPlayDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240224154834_ModifyAreaFields")]
+    partial class ModifyAreaFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

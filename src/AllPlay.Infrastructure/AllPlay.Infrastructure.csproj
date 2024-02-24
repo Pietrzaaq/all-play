@@ -25,6 +25,13 @@
       <Folder Include="Persistence\Migrations\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Persistence\Migrations\20240209230529_ModifyArea.cs" />
+      <Compile Remove="Persistence\Migrations\20240209230529_ModifyArea.Designer.cs" />
+      <Compile Remove="Persistence\Migrations\20240223174110_AddedCoordinatesToArea.cs" />
+      <Compile Remove="Persistence\Migrations\20240223174110_AddedCoordinatesToArea.Designer.cs" />
+    </ItemGroup>
+
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
