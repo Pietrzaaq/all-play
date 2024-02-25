@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using NetTopologySuite.Geometries;
 
 #nullable disable
 
@@ -20,9 +21,27 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StreetAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    OpenStreetMapId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OpenStreetMapName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    StreetAddress = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    CountryRegion = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    CountryIso = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    PostalCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    FormattedAddress = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Point = table.Column<Point>(type: "geography", nullable: false),
+                    Polygon = table.Column<Polygon>(type: "geography", nullable: false),
+                    Latitude = table.Column<double>(type: "float", nullable: false),
+                    Longitude = table.Column<double>(type: "float", nullable: false),
+                    IsOutdoorArea = table.Column<bool>(type: "bit", nullable: true),
+                    Leisure = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Sport = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HasMultipleSports = table.Column<bool>(type: "bit", nullable: false),
+                    Surface = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Lit = table.Column<bool>(type: "bit", nullable: true),
+                    Access = table.Column<bool>(type: "bit", nullable: true),
+                    Barrier = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -36,7 +55,7 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AreaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SportType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SportType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EventStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -60,8 +79,8 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SportEventId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>

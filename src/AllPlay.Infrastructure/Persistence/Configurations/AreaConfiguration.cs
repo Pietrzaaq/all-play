@@ -43,17 +43,26 @@ public class AreaConfiguration : IEntityTypeConfiguration<Area>
             .IsRequired()
             .HasMaxLength(TextLengths.ShortText);
 
-        builder.Property(x => x.PhoneNumber)
-            .HasConversion(x => x.Value, x => new PhoneNumber(x))
-            .HasMaxLength(TextLengths.PhoneNumber);
-
-        builder.Property(x => x.IsOutdoorArea);
-        
         builder.Property(x => x.Polygon)
             .IsRequired();
         
         builder.Property(x => x.Point)
             .IsRequired();
+        
+        builder.Property(x => x.OpenStreetMapId);
+        builder.Property(x => x.OpenStreetMapName);
+        builder.Property(x => x.IsOutdoorArea);
+        builder.Property(x => x.Leisure);
+        builder.Property(x => x.Sport);
+        builder.Property(x => x.HasMultipleSports);
+        builder.Property(x => x.Surface);
+        builder.Property(x => x.Lit);
+        builder.Property(x => x.Access);
+        builder.Property(x => x.Barrier);
+        
+        builder.Property(x => x.PhoneNumber)
+            .HasConversion(x => x.Value, x => new PhoneNumber(x))
+            .HasMaxLength(TextLengths.PhoneNumber);
         
         builder.OwnsOne(x => x.Coordinates)
             .Property(x => x.Latitude)

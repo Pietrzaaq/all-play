@@ -6,7 +6,6 @@ namespace AllPlay.Application.DTO;
 
 public static class Extensions
 {
-
     public static SportEventDto AsDto(this SportEvent sportEvent)
         => new()
         {
@@ -42,16 +41,26 @@ public static class Extensions
         return new()
         {
             Id = area.Id,
+            OpenStreetMapId = area.OpenStreetMapId,
+            OpenStreetMapName = area.OpenStreetMapName,
             Name = area.Name,
             StreetAddress = area.StreetAddress,
             CountryRegion = area.StreetAddress,
             CountryIso = area.CountryIso,
             PostalCode = area.PostalCode,
             FormattedAddress = area.FormattedAddress,
+            Latitude = area.Coordinates.Latitude,
+            Longitude = area.Coordinates.Longitude,
+            Polygon = polygon,
+            Point = coordinates,
             PhoneNumber = area.PhoneNumber?.Value,
             IsOutdoorArea = area.IsOutdoorArea,
-            Coordinates = coordinates,
-            Polygon = polygon,
+            Leisure = area.Leisure,
+            Sport = area.Sport,
+            HasMultipleSports = area.HasMultipleSports,
+            Surface = area.Surface,
+            Access = area.Access,
+            Barrier = area.Barrier,
             SportEvents = area.SportEvents.ToList()
         };
     } 

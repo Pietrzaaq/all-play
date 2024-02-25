@@ -19,7 +19,7 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("AllPlay")
-                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("ProductVersion", "8.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -28,6 +28,12 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("Access")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Barrier")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CountryIso")
                         .IsRequired()
@@ -44,13 +50,29 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<bool>("IsOutdoorArea")
+                    b.Property<bool>("HasMultipleSports")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsOutdoorArea")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Leisure")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Lit")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
+
+                    b.Property<string>("OpenStreetMapId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OpenStreetMapName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(15)
@@ -69,10 +91,17 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<string>("Sport")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("StreetAddress")
                         .IsRequired()
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
+
+                    b.Property<string>("Surface")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -89,9 +118,11 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("SportEventId")
@@ -131,6 +162,7 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SportType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -166,7 +198,8 @@ namespace AllPlay.Infrastructure.Persistence.Migrations
                                 .HasForeignKey("AreaId");
                         });
 
-                    b.Navigation("Coordinates");
+                    b.Navigation("Coordinates")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AllPlay.Domain.Entities.Player", b =>
