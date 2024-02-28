@@ -40,7 +40,7 @@ public static class Extensions
 
         return new()
         {
-            Id = area.Id,
+            Id = area.Id.Value,
             OpenStreetMapId = area.OpenStreetMapId,
             OpenStreetMapName = area.OpenStreetMapName,
             Name = area.Name,

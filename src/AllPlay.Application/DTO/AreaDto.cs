@@ -7,7 +7,7 @@ namespace AllPlay.Application.DTO;
 public class AreaDto
 {
     public List<SportEvent> SportEvents { get; set; }
-    public Id Id { get; set; }
+    public Guid Id { get; set; }
     public string OpenStreetMapId { get; set; }
     public string? OpenStreetMapName { get; set; }
     public string Name { get; set; }
