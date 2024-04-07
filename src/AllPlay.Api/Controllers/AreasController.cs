@@ -2,6 +2,7 @@
 using AllPlay.Application.Areas.Create;
 using AllPlay.Application.Areas.Get;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AllPlay.Api.Controllers;
@@ -38,8 +39,9 @@ public class AreasController : ControllerBase
         return Ok(result);
     }
     
+    [AllowAnonymous]
     [HttpGet]
-    public async Task<IActionResult> GetSportEvents()
+    public async Task<IActionResult> GetAreas()
     {
         var result = await _mediator.Send(new BrowseAreasQuery());
 
@@ -50,5 +52,4 @@ public class AreasController : ControllerBase
 
         return Ok(result);
     }
-    
 }

@@ -15,10 +15,12 @@ internal static class DependencyInjection
         var connectionString = configuration[$"Database:ConnectionString"];
         services.AddDbContext<AllPlayDbContext>(x => x.UseSqlServer(connectionString,
             opt => opt.UseNetTopologySuite()));
+        
         services.AddScoped<ISportEventRepository, SportEventRepository>();
         services.AddScoped<IAreaRepository, AreaRepository>();
-        services.AddHostedService<DatabaseInitializer>();
         
+        services.AddHostedService<DatabaseInitializer>();
+
         return services;
     }
 }

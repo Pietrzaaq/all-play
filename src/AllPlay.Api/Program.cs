@@ -1,6 +1,7 @@
 using AllPlay.Api;
 using AllPlay.Application;
 using AllPlay.Infrastructure;
+using Microsoft.AspNetCore.Identity;
 
 var allowOrigins = "AllowOrigins";
 
@@ -26,6 +27,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 {
+    app.MapIdentityApi<IdentityUser>();
+    
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();

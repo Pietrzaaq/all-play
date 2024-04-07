@@ -1,5 +1,6 @@
 ﻿using AllPlay.Application.Abstractions.Common;
 using AllPlay.Application.Abstractions.Geolocation;
+using AllPlay.Infrastructure.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using AllPlay.Infrastructure.Persistence;
 using AllPlay.Infrastructure.Services.Common;
@@ -22,6 +23,8 @@ public static class DependencyInjection
             new NetTopologySuite.Geometries.CoordinateEqualityComparer());
         
         services.AddDatabase(configuration);
+        services.AddAuth(configuration);
+        
         services.AddScoped<IDateTimeProvider, DateTimeProvider>();
         services.AddSingleton<IGeolocationService, GeolocationService>();
 
