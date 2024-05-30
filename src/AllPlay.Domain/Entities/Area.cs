@@ -9,7 +9,7 @@ public class Area
     
     public Id Id { get; }
     public string OpenStreetMapId { get; }
-    public string? OpenStreetMapName { get; }
+    public string OpenStreetMapName { get; }
     public string Name { get; }
     public string StreetAddress { get; }
     public string CountryRegion { get; }
@@ -20,14 +20,14 @@ public class Area
     public Polygon Polygon { get; }
     public AllPlay.Domain.ValueObjects.Coordinates Coordinates { get; }
     public bool? IsOutdoorArea { get; }
-    public string? Leisure { get; }
+    public string Leisure { get; }
     public string Sport { get; }
     public bool HasMultipleSports { get; }
-    public string? Surface { get; }
+    public string Surface { get; }
     public bool? Lit { get; }
     public bool? Access { get; }
-    public string? Barrier { get; }
-    public PhoneNumber? PhoneNumber { get; }
+    public string Barrier { get; }
+    public PhoneNumber PhoneNumber { get; }
     public IReadOnlyList<SportEvent> SportEvents => _sportEvents.AsReadOnly();
 
     public Area()
@@ -56,7 +56,7 @@ public class Area
         bool? lit,
         bool? access,
         string barrier,
-        PhoneNumber? phoneNumber)
+        PhoneNumber phoneNumber)
     {
         Id = id;
         OpenStreetMapId = openStreetMapId;
